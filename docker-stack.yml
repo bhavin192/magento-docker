@@ -1,0 +1,36 @@
+version: '3'
+services:
+  web:
+    image: bhavin192/magento     
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+      resources:
+        memory: 1G
+        cpus: '0.25'
+        placement:
+          constraints: [node.role == manager]
+
+  db:
+    image: mariadb   
+    environment:
+      MYSQL_ROOT_PASSWORD: root1
+      MYSQL_DATABASE:  magento 
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]    
+          
+         
