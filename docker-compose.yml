@@ -1,14 +1,15 @@
 version: '2'
 services:
-        web:
-                build: .
-                ports: 
-                - "80:80"
-                mem_limit: 4g
-                cpu_quota: 25000
+  web:
+    #image: bhavin192/magento
+    build: .
+    ports: 
+      - "80:80"
+    mem_limit: 4g
+    #cpu_quota: 25000
                 
-        db:
-                image: mariadb
-                environment:
-                         MYSQL_ROOT_PASSWORD: root1
-                         MYSQL_DATABASE:  magento     
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root1
+      MYSQL_DATABASE:  magento     

@@ -5,7 +5,7 @@ services:
     ports:
       - "80:80"
     deploy:
-      replicas: 3
+      replicas: 3 
       restart_policy:
         condition: on-failure
       resources:
