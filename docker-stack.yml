@@ -11,8 +11,8 @@ services:
       resources:
         memory: 1G
         cpus: '0.25'
-        placement:
-          constraints: [node.role == manager]
+      #placement:
+        #constraints: [node.role == manager]
 
   db:
     image: mariadb   
@@ -32,5 +32,3 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]    
-          
-         
