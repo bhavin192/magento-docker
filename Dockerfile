@@ -1,4 +1,7 @@
 FROM php:5.6-apache
+
+LABEL maintainer="bhavin7392@gmail.com"
+
 RUN curl -O -L https://github.com/OpenMage/magento-mirror/archive/1.9.3.2.tar.gz \
 	&& tar xf 1.9.3.2.tar.gz
 RUN mv ./magento-mirror-1.9.3.2/* /var/www/html/
@@ -21,7 +24,3 @@ RUN apt-get update && apt-get install -y \
 
 #Specify Volume
 VOLUME /var/www/html
-	
-
-
-
